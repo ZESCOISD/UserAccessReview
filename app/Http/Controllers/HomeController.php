@@ -12,3 +12,7 @@ class HomeController extends Controller
         return view('welcome');
     }
 }
+
+
+
+

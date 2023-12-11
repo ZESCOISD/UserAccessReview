@@ -95,77 +95,50 @@
 
     </aside>
 
-    <div class="content-wrapper">
 
-        <div class="content-header">
-            <div class="container-fluid">
+            <div class="card-body table-responsive p-0"><div class="content-wrapper" style="min-height: 804.406px;">
+                    <!-- Main content -->
+
+                    <div class="content-wrapper" style="min-height: 804.406px;">
+                        <!-- Content Header (Page header) -->
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
-                    </div>
+
+                    </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route("home")}}">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="{{route("access.index")}}">User Review</a></li>
+                            <li class="breadcrumb-item active"><a href="{{route("access.index")}}">User Reviews</a></li>
                         </ol>
-                    </div>
+                    </div><!-- /.col -->
                 </div>
-            </div>
-        </div>
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-md-10">
+                                <form method="post" action="">
+
+                                    <section class="content">
+                                        <div class="container-fluid">
+
+                                            <div class="row">
+                                                <div class="col-md-12">
 
 
 
 
-                <div class="row">
-
-                    <section class="col-lg-12 connectedSortable">
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title text-bold text-orange text-capitalize">
-                                    User Access Review Form
-                                </h3>
-                                <div class="card-tools">
-
-                                </div>
-                            </div>
-                            <form method="POST" action="{{route('access.store')}}">
-                                @csrf
-                                <div class="card-body">
-                                    <table border="1" width="100%" cellspacing="0" cellpadding="0" align="Centre" class="mt-2 mb-4">
-                                        <thead>
-                                        <tr class="border-success">
-                                            <th width="33%" colspan="1" class="text-center"><a href="#"><img src="https://eforms.zesco.co.zm/dashboard/dist/img/zesco1.png" title="ZESCO" alt="ZESCO" width="25%"></a></th>
-                                            <th width="33%" colspan="4" class="text-center">USER ACCESS REVIEW FORM</th>
-                                            <th width="34%" colspan="1" class="p-3">Doc Number:<br>SC.15100.FORM.00867<br>Version: 3
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                    </table>
-                                    <tr style="text-center: center" width="w-100">
-                                        <td colspan="2" width="w-100" class="text-orange">
-                                            <h5 class="text-green text-capitalize">
-                                                 </h5>
-                                        </td>
-                                    </tr>
-
-                                    <div class="row">
-                                        <div class="col-12">
-
-                                                                    </div>
-
-
-                                        <div class="col-md-6 col-lg-6 col-sm-12">
+                                                    <div class="col-md-6 col-lg-6 col-sm-12">
                                             <div class="card">
                                                 <div class="card-header">
+                                                    <a class="btn btn-outline-success float-right" href="{{route("home")}}">
+                                                        <i class="fa fa-backward"></i> Back
+                                                    </a>
 
                                                     <h2 class="title">User Review</h2>
 
                                                 </div>
-                                                <!-- /.card-header -->
-                                                <div class="card-body p-0">
-
-
 
                                                     <div class="card-body">
 
@@ -176,7 +149,7 @@
 
                                                                 <div class="form-group">
                                                                     <label for="staff_no">Man Number</label>
-                                                                    <input class="form-control" id="staff_no" type="text" value="" name="staff_no">
+                                                                    <input class="form-control" id="staff_no" type="text" value="{{$user_review->staff_no ?? "-" }}" name="staff_no" readonly="">
 
                                                                 </div>
 
@@ -186,7 +159,7 @@
 
                                                                 <div class="form-group">
                                                                     <label for="username">Username</label>
-                                                                    <input type="text" class="form-control" id="username" value="" name="username">
+                                                                    <input type="text" class="form-control" id="username" value="{{$user_review->username ?? "-" }}" name="username" readonly="">
                                                                 </div>
 
                                                             </div>
@@ -199,7 +172,7 @@
 
                                                                 <div class="form-group">
                                                                     <label for="full_name">Full Name</label>
-                                                                    <input type="text" class="form-control" id="full_name" name="full_name">
+                                                                    <input type="text" class="form-control" id="full_name" name="full_name" value="{{$user_review->full_name ?? "-" }}" readonly="">
 
                                                                 </div>
 
@@ -209,7 +182,8 @@
 
                                                                 <div class="form-group">
                                                                     <label for="employyee_designation">Employee Designation</label>
-                                                                    <input type="text" class="form-control" id="employee_designation" name="employee_designation">
+                                                                    <input type="text" class="form-control" id="employee_designation" name="employee_designation"value="{{$user_review->employee_designation ?? "-" }}"readonly="">
+
 
 
                                                                 </div>
@@ -223,14 +197,16 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="area">Area</label>
-                                                                    <input type="text" id="area" name="area" class="form-control">
+                                                                    <input type="text" id="area" name="area" class="form-control"value="{{$user_review->area ?? "-" }}" readonly="">
+
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="review_access">Review access</label>
-                                                                    <input type="text" id="review_access" name="review_access" class="form-control">
+                                                                    <input type="text" id="review_access" name="review_access" class="form-control"value="{{$user_review->review_access ?? "-" }}" readonly>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -239,7 +215,8 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="review_action">Review Action</label>
-                                                                    <select class="form-control" name="review_action" id="review_action" aria-label="Default select example">
+                                                                    <select class="form-control" name="review_action" id="review_action" aria-label="Default select example"value="{{$user_review->review_action ?? "-" }}"readonly>
+
                                                                         <option selected>review_action</option>
                                                                         <option value="1">Pending</option>
                                                                         <option value="2">Accept</option>
@@ -253,7 +230,8 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="system">System</label>
-                                                                    <select class="form-control" name="system_id" id="system_id" aria-label="Default select example">
+                                                                    <select class="form-control" name="system_id" id="system_id" aria-label="Default select example"value="{{$user_review->name ?? "-" }}">
+
                                                                         <option selected>Select System</option>
                                                                         <option value="1">Fleet Masters</option>
                                                                         <option value="2">Two</option>
@@ -272,7 +250,8 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="Role">Role</label>
-                                                                    <select class="form-control" name="role_id" id="role_id" aria-label="Default select example">
+                                                                    <select class="form-control" name="role_id" id="role_id" aria-label="Default select example"value="{{$user_review->Role ?? "-" }}">
+
                                                                         <option selected>Select Role</option>
                                                                         <option value="1">Fuel Requisition</option>
                                                                         <option value="2">Manager</option>
@@ -287,72 +266,59 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="comments">Comments</label>
-                                                                    <input type="text" class="form-control" name="comments" id="comments">
+                                                                    <input type="text" class="form-control" name="comments" id="comments"value="{{$user_review->comments ?? "-" }}" readonly>
+
                                                                 </div>
                                                             </div>
+                                                            <a class="btn btn-outline-success float-right" href="-">
+                                                                <i class="fa fa-"></i> Approve
+                                                            </a>
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                                </div>
+
+
+                                                                <div style="padding: 120px">
+                                                                </div>
 
                                                         </div>
-                                                        <div class="row"><button type="submit" class="btn btn-outline-success" onclick="hideSubmit()">
-                                                            Submit
-                                                        </button></div>
-
+                                                        <!-- /.card-body -->
                                                     </div>
 
-
-                                                </div>
-                                                <!-- /.card-body -->
-                                            </div>
-                                            <!-- /.card -->
-                                        </div>
-
-                                        <div class="col-md-6 col-lg-6 col-sm-12">
-                                            <div class="card">
-
-                                                <div class="card-header">
-                                                    <h4 class="title">Details</h4>
-                                                </div>
-                                                <!-- /.card-header -->
-                                                <div class=" card-body p-2">
-
-                                                    <div class="row">
-
-                                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                <label for="review_period">Review Period</label>
-                                                                <input type="date" id="date" name="review_period" class="form-control">
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <!-- /.card-body -->
+                                                    <!-- /.card -->
                                                 </div>
                                             </div>
 
+                                        </div><!-- /.container-fluid -->
+                                    </section>
 
-                            </form>
-                        </div>
+                                </form>
 
-                    </section>
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                    </div>
 
                 </div>
+            </section>
 
+        </div>
+        <div>
 
+        @include('layouts.footer')
 
-                </div>
+        <aside class="control-sidebar control-sidebar-dark">
 
-            </div>
-        </section>
+        </aside>
 
+        </div>
     </div>
-
-    @include('layouts.footer')
-
-    <aside class="control-sidebar control-sidebar-dark">
-
-    </aside>
-
-</div>
-
 
 <script src="{{asset('adminlte/plugins/jquery/jquery.min.js')}}"></script>
 
